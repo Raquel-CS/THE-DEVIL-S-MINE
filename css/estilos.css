@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --fondo: #10151b;
+  --panel: #1b242b;
+  --borde: #46545c;
+  --oro: #ffc857;
+  --texto: #f5f0df;
+  --verde: #85d18a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #27353b 0%, var(--fondo) 65%);
+  color: var(--texto);
+  font-family: "VT323", monospace;
+  font-size: 23px;
+}
+
+.contenedor {
+  width: min(960px, 94%); 
+  margin: 0 auto; 
+  padding: 24px 0 36px; 
+}
+.encabezado { 
+  text-align: center;
+  margin-bottom: 22px; 
+}
+.etiqueta { 
+  color: var(--verde); 
+  font-size: 16px; 
+  letter-spacing: 3px; 
+  margin: 0 0 12px; 
+}
+h1 { 
+  color: var(--oro); 
+  font-family: "Press Start 2P", monospace; 
+  font-size: clamp(18px, 3.5vw, 30px); 
+  line-height: 1.6; margin: 0; 
+  text-shadow: 4px 4px #6b3e19; 
+}
+.subtitulo { 
+  margin: 8px 0 0; 
+  color: #c8d1d0; 
+}
+
+.panel-juego, .instrucciones { 
+  background: var(--panel); 
+  border: 3px solid var(--borde); 
+  box-shadow: 7px 7px 0 #070a0d; 
+  padding: 16px; 
+}
+.estadisticas { 
+  display: flex; 
+  justify-content: space-around; 
+  gap: 12px; 
+  margin-bottom: 14px; 
+  text-align: center; 
+}
+.estadisticas div { 
+  display: grid; 
+  gap: 7px; 
+}
+.nombre-estadistica { 
+  color: var(--oro); 
+  font-size: 17px; 
+}
+.estadisticas strong { 
+  font-size: 25px; 
+}
+
+.lienzo-contenedor { 
+  position: relative; 
+  width: 100%; 
+  border: 3px solid #66747a; 
+  background-color: #171b20; 
+  background-image: url("../img/inicio.jpeg");
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; 
+}
+.mensaje { 
+  position: absolute; 
+  inset: 0;/* permite mostrar las letras encima*/
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 22px; 
+  text-align: center; 
+  background: rgba(10, 14, 18, .84); 
+}
+.mensaje h2 { 
+  color: var(--oro); 
+  font-family: "Press Start 2P", monospace; 
+  font-size: clamp(10px, 2vw, 19px); 
+  line-height: 1.5; 
+}
+.mensaje p { 
+  max-width: 580px; 
+  font-size: clamp(15px, 2.5vw, 23px);
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+.tecla-ayuda { color: var(--verde); }
+
+.botones-principales { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 10px; 
+  margin: 16px 0 8px;
+ }
+button { 
+  font: inherit; 
+  font-size: 22px; 
+  color: #172027; 
+  background: var(--oro); 
+  border: 0; border-bottom: 
+  5px solid #b47b22; 
+  padding: 9px 15px; 
+  cursor: pointer;
+ }
+
+button:hover:not(:disabled) { 
+    filter: brightness(1.12); 
+    transform: translateY(-1px); 
+}
+button:active:not(:disabled) { 
+    transform: translateY(2px); 
+    border-bottom-width: 3px; 
+}
+button:disabled { 
+    opacity: .45; 
+    cursor: not-allowed; 
+}
+button.secundario { 
+    background: #d8e0df; 
+    border-bottom-color: #899695; 
+}
+.controles-moviles { 
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 24px; 
+    margin-top: 12px; 
+    color: #aab8b7; 
+}
+.controles-moviles button { 
+    width: 76px; 
+    height: 54px; 
+    font-size: 27px;
+}
+
+.instrucciones { margin-top: 22px; }
+.instrucciones h2 { 
+  color: var(--oro); 
+  font-family: "Press Start 2P", monospace; 
+  font-size: 15px; 
+  line-height: 1.8; 
+}
+.instrucciones li { margin: 7px 0; }
+.nota { 
+  color: #aab8b7; 
+  font-size: 18px; 
+  border-top: 1px dashed #46545c; 
+  padding-top: 12px; 
+}
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+.mensaje.oculto{display: none;}
+@media (max-width: 650px) {
+  .contenedor { width: 100%; padding: 8px 4px 20px; }
+  .etiqueta{font-size: 14px;}
+  h1{font-size: 18px;}
+  .subtitulo{font-size: 14px;}
+  .panel-juego { padding: 6px; }
+  .lienzo-contenedor{width:  100%;}
+  .estadisticas { gap: 5px; }
+  .nombre-estadistica { font-size: 14px; }
+  .estadisticas strong { font-size: 20px; }
+  .controles-moviles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .controles-moviles button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 38px;
+    padding: 4px;
+    font-size: 20px;
+  }
+  /* Ocultar los textos de los botones principales */
+  .botones-principales button {
+    font-size: 0;
+    flex: 1;
+    padding: 8px;
+    min-width: 45px;
+  }
+
+  /* Mostrar solamente los iconos */
+  #iniciar::before {
+    content: "▶️";
+    font-size: 20px;
+  }
+
+  #pausar::before {
+    content: "Ⅱ";
+    font-size: 20px;
+  }
+
+  #reiniciar::before {
+    content: "↻";
+    font-size: 20px;
+  }
+  .instrucciones { padding: 12px;font-size: 14px; }
+  .instrucciones h2 { font-size: 13px; }
+  .mensaje{font-size: 20px;}
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Devil’s Mine </title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="encabezado">
+      <p class="etiqueta">SAL CON VIDA DE LA MINA </p>
+      <h1>The Devil’s Mine</h1>
+      <p class="subtitulo">Sobrevive al TIO de la mina.</p>
+    </header>
+
+    <section class="panel-juego" aria-label="Zona de juego">
+      <div class="estadisticas">
+        <div><span class="nombre-estadistica">PUNTOS</span><strong id="puntuacion">0</strong></div>
+        <div><span class="nombre-estadistica">VIDAS</span><strong id="vidas">❤️❤️❤️</strong></div>
+        <div><span class="nombre-estadistica">RÉCORD</span><strong id="record">0</strong></div>
+      </div>
+
+      <div class="lienzo-contenedor">
+        <canvas id="juego" width="1536" height="512" aria-label="Videojuego de supervivencia en una mina">
+        </canvas>
+        <div id="mensaje" class="mensaje">
+          <h2>¡Bienvenido a la mina!</h2>
+          <p>Esquiva las rocas y los enemigos. Sobrevive para conseguir 1000 puntos.</p>
+          <p class="tecla-ayuda">Usa A,W,D,S para moverte</p>
+        </div>
+      </div>
+
+      <div class="botones-principales">
+        <button id="iniciar">▶ Iniciar partida</button>
+        <button id="pausar" class="secundario" disabled>Ⅱ Pausar</button>
+        <button id="reiniciar" class="secundario">↻ Reiniciar</button>
+      </div>
+
+      <div class="controles-moviles" aria-label="Controles táctiles">
+        <button id="izquierda" aria-label="Mover a la izquierda">◀</button>
+        <button id="saltar" aria-label="Mover arriba">▲ </button>
+        <button id="abajo" aria-label="Mover a la derecha">▼</button>
+        <button id="derecha" aria-label="Mover a la derecha">▶</button>
+      </div>
+    </section>
+
+    <section class="instrucciones">
+      <h2>📜 Cómo jugar</h2>
+      <ul>
+        <li>Muévete de arriba, abajo, izquierda y derecha para esquivar los peligros.</li>
+        <li>Cada roca que evites te ayuda a seguir sumando puntos.</li>
+        <li>Si chocas, pierdes una vida. Tienes tres vidas.</li>
+        <li>Agarra las monedas para reunir mas puntos</li>
+        <li>¡Llega a 1000 puntos para ganar!</li>
+      </ul>
+      <p class="nota">JUEGA Y DIVIERTETE </p>
+    </section>
+  </main>
+  <script src="js/codigo.js"></script>
+</body>
+</html>
